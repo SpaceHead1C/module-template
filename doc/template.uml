@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.qa.template</OriginalElement>
+  <nodes>
+    <node x="266.5" y="-7.0">ru.qa.template.bdd.Unit2Tests</node>
+    <node x="233.5" y="39.0">ru.qa.template.bdd.Unit2StepDefenitions</node>
+    <node x="-495.5" y="124.0">ru.qa.template.managers.NavigationHelper</node>
+    <node x="938.5" y="-77.0">ru.qa.template.tests.MailTests</node>
+    <node x="549.5" y="278.0">ru.qa.template.model.Unit2Data</node>
+    <node x="-314.5" y="33.0">ru.qa.template.managers.HelperBase</node>
+    <node x="632.5" y="-184.0">ru.qa.template.tests.RestTests</node>
+    <node x="609.5" y="-286.0">ru.qa.template.tests.GeoIpServiceTests</node>
+    <node x="1023.5" y="119.0">ru.qa.template.tests.Unit2DeletionTests</node>
+    <node x="-611.5" y="126.0">ru.qa.template.managers.DbHelper</node>
+    <node x="-341.5" y="-70.0">ru.qa.template.managers.ApplicationManager</node>
+    <node x="-158.5" y="122.0">ru.qa.template.managers.Unit1Helper</node>
+    <node x="322.5" y="282.0">ru.qa.template.model.Unit1Data</node>
+    <node x="838.5" y="114.0">ru.qa.template.tests.Unit2CreationTests</node>
+    <node x="-383.5" y="-190.0">ru.qa.template.managers.FtpHelper</node>
+    <node x="665.5" y="114.0">ru.qa.template.tests.Unit1CreationTests</node>
+    <node x="631.5" y="-87.0">ru.qa.template.tests.TestBase</node>
+    <node x="-244.5" y="-191.0">ru.qa.template.managers.HttpSession</node>
+    <node x="-545.5" y="-188.0">ru.qa.template.managers.MailHelper</node>
+    <node x="609.5" y="-236.0">ru.qa.template.tests.HbConnectionTest</node>
+    <node x="613.5" y="-138.0">ru.qa.template.tests.MyTestListener</node>
+    <node x="981.5" y="-177.0">ru.qa.template.model.Issue</node>
+    <node x="-546.5" y="-292.0">ru.qa.template.model.MailMessage</node>
+    <node x="-11.5" y="120.0">ru.qa.template.managers.Unit2Helper</node>
+    <node x="321.5" y="481.0">ru.qa.template.tests.DbConnectionTest</node>
+    <node x="-314.5" y="123.0">ru.qa.template.managers.SessionHelper</node>
+    <node x="227.5" y="407.0">ru.qa.template.model.Units1</node>
+    <node x="21.5" y="403.0">ru.qa.template.model.Units2</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.qa.template.managers.HttpSession" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.FtpHelper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.MailHelper" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.Unit2Helper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.Unit1CreationTests" target="ru.qa.template.tests.TestBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Unit2Data" target="ru.qa.template.model.Units1">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.bdd.Unit2StepDefenitions" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit2Helper" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Unit1Data" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.MailTests" target="ru.qa.template.tests.TestBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.Unit1CreationTests" target="ru.qa.template.model.Unit1Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Unit1Data" target="ru.qa.template.model.Units2">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.NavigationHelper" target="ru.qa.template.managers.HelperBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.HttpSession">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.Unit2DeletionTests" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.TestBase" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.DbConnectionTest" target="ru.qa.template.model.Units2">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.MailHelper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.bdd.Unit2StepDefenitions" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.DbHelper" target="ru.qa.template.model.Units2">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit1Helper" target="ru.qa.template.model.Unit1Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.Unit1Helper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Unit2Data" target="ru.qa.template.model.Unit1Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.RestTests" target="ru.qa.template.model.Issue">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.Unit2CreationTests" target="ru.qa.template.tests.TestBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.TestBase" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Units2" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.DbConnectionTest" target="ru.qa.template.model.Unit2Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.FtpHelper" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit2Helper" target="ru.qa.template.managers.HelperBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit1Helper" target="ru.qa.template.managers.HelperBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.MailHelper" target="ru.qa.template.model.MailMessage">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.bdd.Unit2StepDefenitions" target="ru.qa.template.model.Units2">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.HelperBase" target="ru.qa.template.managers.ApplicationManager">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.tests.Unit2DeletionTests" target="ru.qa.template.tests.TestBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.DbHelper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.ApplicationManager" target="ru.qa.template.managers.NavigationHelper">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.SessionHelper" target="ru.qa.template.managers.HelperBase">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.model.Units1" target="ru.qa.template.model.Unit1Data">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit1Helper" target="ru.qa.template.model.Units1">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="ru.qa.template.managers.Unit2Helper" target="ru.qa.template.model.Units2">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="281.5" y="88.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

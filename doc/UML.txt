@@ -1,0 +1,234 @@
+@startuml
+interface ITestListener
+
+package "managers" #DDDDDD {
+ skinparam classAttributeIconSize 0
+ class ApplicationManager {
+  -properties: Properties
+  -driver: WebDriver
+  -navigationHelper
+  -sessionHelper
+  -dbHelper
+  -ftpHelper
+  -mailHelper
+  -unit1Helper
+  -unit2Helper
+  -browser: String
+__
+  ApplicationManager(String browser)
+..
+  +init()
+  +stop()
+  +getProperty(String key): String
+  +getDriver(): WebDriver
+  +newSession(): HttpSession
+  +goTo(): NavigationHelper
+  +db(): DbHelper
+  +ftp(): FtpHelper
+  +mail(): MailHelper
+  +unit1(): Unit1Helper
+  +unit2(): Unit2Helper
+  +takeScreenshot(): byte[]
+ }
+
+ class HelperBase {
+  #app: ApplicationManager
+  #driver: WebDriver
+__
+  HelperBase(ApplicationManager app)
+..
+  #click(By locator)
+  #type(By locator, String text)
+  #attach(By locator, File file)
+  #isElementPresent(By by): boolean
+  -isAlertPresent(): boolean
+  -closeAlertAndGetItsText(): String
+ }
+
+ class NavigationHelper {
+  NavigationHelper(ApplicationManager app)
+..
+  +gotoHomePage()
+ }
+
+ class SessionHelper {
+  SessionHelper(ApplicationManager app)
+..
+  +login(String username, String password)
+ }
+
+ class FtpHelper {
+  -app: ApplicationManager
+  -ftp: FTPClient
+__
+  FtpHelper(ApplicationManager app)
+..
+  +upload(File file, String target, String backup)
+ }
+
+ class HttpSession {
+  -app: ApplicationManager
+  -httpClient: CloseableHttpClient
+__
+  HttpSession(ApplicationManager app)
+..
+  -getTextFrom(CloseableHttpResponse response): String
+  -getCodeFrom(CloseableHttpResponse response): int
+  +login(String username, String password): boolean
+ }
+
+ class MailHelper{
+  -app: ApplicationManager
+  -mailSession: Session
+  -store: Store
+  -mailserver: String
+__
+  MailHelper(ApplicationManager app)
+..
+  +drainEmail(String username, String password)
+  -openInbox(String username, String password): Folder
+  -closeFolder(Folder folder)
+  +getAllMail(String username, String password): List<MailMessage>
+  -toModelMail(Message m): MailMessage
+ }
+
+ class Unit1Helper {
+  Unit1Helper(ApplicationManager app)
+ }
+
+ class Unit2Helper {
+  Unit2Helper(ApplicationManager app)
+ }
+
+ class DbHelper
+}
+
+HelperBase "1" *--> "1" ApplicationManager
+NavigationHelper "1" <--* "1" ApplicationManager
+HttpSession "1" *--> "1" ApplicationManager
+DbHelper "1" <--* "1" ApplicationManager
+FtpHelper "1" *--* "1" ApplicationManager
+MailHelper "1" *--* "1" ApplicationManager
+Unit1Helper "1" <--* "1" ApplicationManager
+Unit2Helper "1" <--* "1" ApplicationManager
+HelperBase<|-- NavigationHelper
+HelperBase<|-- SessionHelper
+HelperBase<|-- Unit1Helper
+HelperBase<|-- Unit2Helper
+
+package "tests" #DDDDDD {
+ class TestBase {
+  #{static}app: ApplicationManager
+__
+  +setUp()
+  +tearDown()
+  +logTestStart()
+  +logTestStop()
+ }
+
+ class GeoIpServiceTests {
+  +testGbrIp()
+ }
+
+ class RestTests {
+  +testCreateIssue()
+ }
+
+ class HbConnectionTest {
+  -sessionFactory: SessionFactory
+ }
+
+ class MyTestListener
+
+ ApplicationManager "1" <--* "1" TestBase
+ TestBase <|-- Unit1CreationTests
+ TestBase <|-- Unit2CreationTests
+ TestBase <|-- Unit2DeletionTests
+ TestBase <|-- MailTests
+}
+
+ITestListener <|.. MyTestListener
+GeoIpServiceTests "1" --> "1" GeoIP
+
+package "model" #DDDDDD {
+ class Unit1Data {
+  -content
+..
+  -units2: Set<Unit2Data>
+__
+  +getters()
+  +setters()
+..
+  +inUnit2(Unit2Data unit2): Unit1Data
+ }
+
+ class Units1 << (C, orchid) Decorator >> {
+  -delegate: Set<Unit1Data>
+__
+  Units1(Units1 units1)
+  Units1(Collection<Unit1Data> units1)
+  Units1()
+..
+  +withAdded(Unit1Data unit1): Units1
+  +without(Unit1Data unit1): Units1
+ }
+
+ class Unit2Data {
+  -content
+..
+  -units1: Set<Unit1Data>
+__
+  +getters()
+  +setters()
+ }
+
+ class Units2 << (C, orchid) Decorator >> {
+  -delegate: Set<Unit2Data>
+__
+  Units2(Units2 units2)
+  Units2(Collection<Unit2Data> units2)
+  Units2()
+..
+  +withAdded(Unit2Data unit2): Units2
+  +without(Unit2Data unit2): Units2
+ }
+
+ class MailMessage
+
+ class Issue
+}
+
+RestTests ..> Issue
+
+abstract class ForwardingSet<Unit#Data>
+
+ForwardingSet <|.. Units1
+ForwardingSet <|.. Units2
+
+package "bdd" #DDDDDD {
+ class Unit2Tests
+
+ class Unit2StepDefenitions {
+  -app: ApplicationManager
+..
+  -units2: Units2
+  -newUnit2: Unit2Data
+__
+  +init()
+  +stop()
+  +loadUnits2()
+  +createUnit2(String text, String someParameter)
+  +verifyUnit2Created()
+ }
+}
+
+abstract class AbstractTestNGCucumberTests
+
+MailMessage <.. MailHelper
+AbstractTestNGCucumberTests <|.. Unit2Tests
+Unit2StepDefenitions "1" --> "1" ApplicationManager
+Unit2StepDefenitions "1" *--> "1" Unit2Data
+Unit2StepDefenitions "1" *--> "1" Units2
+@enduml
+
+http://www.plantuml.com/plantuml/uml/

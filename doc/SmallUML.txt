@@ -1,0 +1,126 @@
+@startuml
+interface ITestListener
+
+package "managers" #DDDDDD {
+ skinparam classAttributeIconSize 0
+ class ApplicationManager {
+  -properties: Properties
+  -driver: WebDriver
+  -someHelper
+  -unitHelper
+  -browser: String
+__
+  ApplicationManager(String browser)
+..
+  +init()
+  +stop()
+  +getProperty(String key): String
+  +getDriver(): WebDriver
+  +someHelper(): SomeHelper
+  +otherHelper(): OtherHelper
+  +unitHelper(): UnitHelper
+ }
+
+ class HelperBase {
+  #app: ApplicationManager
+  #driver: WebDriver
+__
+  HelperBase(ApplicationManager app)
+..
+  #someWebPageAct()
+ }
+
+ class SomeHelper {
+  SomeHelper(ApplicationManager app)
+ }
+
+ class OtherHelper {
+  OtherHelper(ApplicationManager app)
+ }
+
+ class UnitHelper {
+  UnitHelper(ApplicationManager app)
+ }
+
+ HelperBase "1" *--> "1" ApplicationManager
+ SomeHelper "1" *--> "1" ApplicationManager
+ OtherHelper "1" *--* "1" ApplicationManager
+ UnitHelper "1" <--* "1" ApplicationManager
+ HelperBase <|-- SomeHelper
+ HelperBase <|-- UnitHelper
+}
+
+package "tests" #DDDDDD {
+ class TestBase {
+  #{static}app: ApplicationManager
+__
+  +setUp()
+  +tearDown()
+ }
+
+ class UnitEvent1Tests {
+  +testUnitEvent1()
+ }
+
+ class UnitEvent2Tests {
+  +testUnitEvent2()
+ }
+
+ class MyTestListener
+
+ ApplicationManager "1" <--* "1" TestBase
+ TestBase <|-- UnitEvent1Tests
+ TestBase <|-- UnitEvent2Tests
+}
+
+ITestListener <|.. MyTestListener
+
+package "model" #DDDDDD {
+ class UnitData {
+  -content
+__
+  +getters()
+  +setters()
+ }
+
+ class Units << (C, orchid) Decorator >> {
+  -delegate: Set<UnitData>
+__
+  Units(Units units)
+  Units(Collection<UnitData> units)
+  Units()
+..
+  +withAdded(UnitData unit): Units
+  +without(UnitData unit): Units
+ }
+}
+
+abstract class ForwardingSet<UnitData>
+
+ForwardingSet <|.. Units
+
+package "bdd" #DDDDDD {
+ class UnitTests
+
+ class UnitStepDefenitions {
+  -app: ApplicationManager
+..
+  -units: Units
+  -newUnit: UnitData
+__
+  +init()
+  +stop()
+  +someAct()
+  +verifyResult()
+ }
+}
+
+abstract class AbstractTestNGCucumberTests
+
+UnitStepDefenitions "1" *--> "1" UnitData
+UnitData "1" <--* "1" Units
+AbstractTestNGCucumberTests <|.. UnitTests
+UnitStepDefenitions "1" *--> "1" ApplicationManager
+@enduml
+
+http://www.plantuml.com/plantuml/uml/
