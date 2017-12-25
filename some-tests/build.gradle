@@ -14,9 +14,13 @@ dependencies {
     compile 'org.testng:testng:6.13.1'
     compile 'org.seleniumhq.selenium:selenium-java:3.8.1'
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    compile 'commons-net:commons-net:3.6'
+    compile 'javax.mail:mail:1.5.0-b01'
     compile 'com.beust:jcommander:1.72'
     compile 'com.thoughtworks.xstream:xstream:1.4.10'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'org.apache.httpcomponents:httpclient:4.5.3'
+    compile 'org.apache.httpcomponents:fluent-hc:4.5.3'
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'mysql:mysql-connector-java:5.1.45'
     compile 'org.hibernate:hibernate-core:5.2.12.Final'
@@ -24,6 +28,27 @@ dependencies {
     compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
     compile 'info.cukes:cucumber-java:1.2.4'
     compile 'info.cukes:cucumber-testng:1.2.4'
+}
+
+buildscript{
+    repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.10'
+    }
+}
+apply plugin: 'no.nils.wsdl2java'
+
+// Should launch console in project dir and run "gradlew wsdl2java" for create package "net.webservicex"
+// Helpers will generate automaticly
+wsdl2java {
+    generatedWsdlDir = file("src/main/java")  // target directory for generated source code
+    wsdlDir = file("src/main/resources") // define to support incremental build
+    wsdlsToGenerate = [   //  2d-array of wsdls and cxf-parameters
+                          ['src/main/resources/geoipservice.wsdl'],
+    ]
 }
 
 task testUnits2(type: Test) {
