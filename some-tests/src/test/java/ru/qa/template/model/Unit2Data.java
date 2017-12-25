@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@XStreamAlias("group")
+@XStreamAlias("unit2")
 @Entity
 @Table(name = "table_2")
 public class Unit2Data {

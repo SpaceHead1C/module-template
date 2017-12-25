@@ -11,6 +11,7 @@ import ru.qa.template.model.Unit2Data;
 import ru.qa.template.model.Units2;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -38,7 +39,7 @@ public class Unit2StepDefenitions {
     }
 
     @When("^I create a new unit2 with text (.+) and some parameter (.+)$")
-    public void createUnit2(String text, String someParameter) {
+    public void createUnit2(String text, String someParameter) throws MalformedURLException {
         newUnit2 = new Unit2Data().withTextField(text);
         app.goTo().unit2Page();
         app.unit2().create(newUnit2);

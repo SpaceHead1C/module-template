@@ -3,9 +3,11 @@ package ru.qa.template.managers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.net.MalformedURLException;
+
 public class SessionHelper extends HelperBase {
-    public SessionHelper(WebDriver driver) {
-        super(driver);
+    public SessionHelper(ApplicationManager app) throws MalformedURLException {
+        super(app);
     }
 
     public void login(String username, String password) {

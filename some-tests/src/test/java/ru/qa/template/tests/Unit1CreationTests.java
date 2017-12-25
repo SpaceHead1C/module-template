@@ -9,7 +9,7 @@ import java.io.File;
 public class Unit1CreationTests extends TestBase {
 
     @Test()
-    public void testGroupCreation() throws Exception {
+    public void testUnit1Creation() throws Exception {
         Units2 units2 = app.db().units2();
         File photo = new File("src\\test\\resources\\photo.jpg");
         Unit1Data newUnit1 = new Unit1Data().withTextField("test_text").withBigTextField("test_big_text").withPhoto(photo)

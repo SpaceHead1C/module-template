@@ -23,8 +23,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class Unit2CreationTests extends TestBase {
 
-    Logger logger = LoggerFactory.getLogger(ru.qa.template.tests.Unit2CreationTests.class);
-
     @DataProvider
     public Iterator<Object[]> validUnits2FromXml() throws IOException {
         String xml = "";

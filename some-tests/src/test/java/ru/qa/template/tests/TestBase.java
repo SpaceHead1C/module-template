@@ -10,6 +10,7 @@ import ru.qa.template.model.Unit2Data;
 import ru.qa.template.model.Units2;
 
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -42,7 +43,7 @@ public class TestBase {
         logger.info("Stop test " + m.getName());
     }
 
-    public void verifyUnit2ListInUI() {
+    public void verifyUnit2ListInUI() throws MalformedURLException {
         if (Boolean.getBoolean("verifyUI")) {
             Units2 dbUnits2 = app.db().units2();
             Units2 uiUnits2 = app.unit2().all();

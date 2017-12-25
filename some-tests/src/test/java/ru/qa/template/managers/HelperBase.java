@@ -3,14 +3,17 @@ package ru.qa.template.managers;
 import org.openqa.selenium.*;
 
 import java.io.File;
+import java.net.MalformedURLException;
 
 public class HelperBase {
+    protected ApplicationManager app;
     protected WebDriver driver;
 
     private boolean acceptNextAlert = true;
 
-    public HelperBase(WebDriver driver) {
-        this.driver = driver;
+    public HelperBase(ApplicationManager app) throws MalformedURLException {
+        this.app = app;
+        this.driver = app.getDriver();
     }
 
     protected void click(By locator) {

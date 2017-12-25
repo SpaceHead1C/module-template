@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "table_1")
-public class Unit1Data extends TestBase{
+public class Unit1Data {
     @Id
     @Column(name = "id")
     private int id = Integer.MAX_VALUE;

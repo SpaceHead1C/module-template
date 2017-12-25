@@ -6,12 +6,13 @@ import org.openqa.selenium.WebElement;
 import ru.qa.template.model.Unit2Data;
 import ru.qa.template.model.Units2;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class Unit2Helper extends HelperBase {
 
-    public Unit2Helper(WebDriver driver) {
-        super(driver);
+    public Unit2Helper(ApplicationManager app) throws MalformedURLException {
+        super(app);
     }
 
     public void returnToUnit2Page() {

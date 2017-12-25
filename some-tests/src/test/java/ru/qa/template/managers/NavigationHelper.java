@@ -3,9 +3,11 @@ package ru.qa.template.managers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.net.MalformedURLException;
+
 public class NavigationHelper extends HelperBase {
-    public NavigationHelper(WebDriver driver) {
-        super(driver);
+    public NavigationHelper(ApplicationManager app) throws MalformedURLException {
+        super(app);
     }
 
     public void unit2Page() {

@@ -8,13 +8,14 @@ import org.testng.Assert;
 import ru.qa.template.model.Unit1Data;
 import ru.qa.template.model.Units1;
 
+import java.net.MalformedURLException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Unit1Helper extends HelperBase {
-    public Unit1Helper(WebDriver driver) {
-        super(driver);
+    public Unit1Helper(ApplicationManager app) throws MalformedURLException {
+        super(app);
     }
 
     public void returnToHomePage() {
